@@ -1,22 +1,19 @@
+from itertools import cycle
+
 
 class TicTacToe:
     """TicTacToe game representation"""
+
     def __init__(self):
         self.board = [[" "] * 3 for i in range(3)]
-        self.player = "x"
+        self.player = cycle(["x", "o"])
 
     def mark(self, position):
         square = self.board[position[0]][position[1]]
         if square != ' ':
             raise ValueError("The square is occupied")
         else:
-            self.board[position[0]][position[1]] = self.player
-
-        # change the player
-        if self.player == "x":
-            self.player = "o"
-        else:
-            self.player = "x"
+            self.board[position[0]][position[1]] = next(self.player)
 
     def is_win(self):
         pass
