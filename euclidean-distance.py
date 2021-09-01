@@ -34,7 +34,6 @@ def find_closest_points(points):
         A list of containing two tuples.
     """
 
-    global selected_point1
     dist_matrix = []
     for p_chosen in points:
         dist = []
@@ -60,9 +59,9 @@ def find_closest_points(points):
 
         ranked = sorted(measures.items(), key=lambda item: item[1])
 
-        selected_point1 = points[ranked[0][0][0]]
-        selected_point2 = points[ranked[0][0][1]]
-    return (selected_point1, selected_point2)
+    selected_point1 = points[ranked[0][0][0]]
+    selected_point2 = points[ranked[0][0][1]]
+    return selected_point1, selected_point2
 
 
 # list of tuples containing coordinates
