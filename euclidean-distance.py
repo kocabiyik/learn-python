@@ -1,7 +1,8 @@
 import math
+from typing import Tuple, List
 
 
-def calculate_distance(p1, p2):
+def calculate_distance(p1: Tuple[float, float], p2: Tuple[float, float]) -> float:
     """
     Calculates distance between two points on the Cartesian space.
 
@@ -25,7 +26,7 @@ def calculate_distance(p1, p2):
     return math.sqrt((y2 - y1) ** 2 + (x2 - x1) ** 2)
 
 
-def find_closest_points(points):
+def find_closest_points(points: List[Tuple[float, float]]) -> Tuple[Tuple, Tuple]:
     """Returns closest two points from an array.
 
     Args:
@@ -62,6 +63,7 @@ def find_closest_points(points):
     selected_point1 = points[ranked[0][0][0]]
     selected_point2 = points[ranked[0][0][1]]
     return selected_point1, selected_point2
+
 
 
 # list of tuples containing coordinates
