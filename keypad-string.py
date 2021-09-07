@@ -1,4 +1,22 @@
+import itertools
+
+
 def get_mapping():
+    """Returns digit-string mapping
+    -------------------------
+    |       |  ABC  |  DEF  |
+    |   1   |   2   |   3   |
+    -------------------------
+    |  GHI  |  JKL  |  MNO  |
+    |   4   |   5   |   6   |
+    -------------------------
+    | PQRS  |  TUV  | WXYZ  |
+    |   7   |   8   |   9   |
+    -------------------------
+    |       |       |       |
+    |   *   |   0   |   #   |
+    -------------------------
+    """
     import string
     possible_digits = string.digits
     possible_characters = string.ascii_lowercase
@@ -23,27 +41,19 @@ def get_mapping():
 def keypad_string(keys: str) -> str:
     """
     Given a string consisting of 0-9, find the string that is created using a standard phone keyboard.
-    -------------------------
-    |       |  ABC  |  DEF  |
-    |   1   |   2   |   3   |
-    -------------------------
-    |  GHI  |  JKL  |  MNO  |
-    |   4   |   5   |   6   |
-    -------------------------
-    | PQRS  |  TUV  | WXYZ  |
-    |   7   |   8   |   9   |
-    -------------------------
-    |       |       |       |
-    |   *   |   0   |   #   |
-    -------------------------
 
-    >>> keypad_string('12345')
-    'adgj'
+    >>> keypad_string('4446777266')
+    'imran'
 
     Returns:
         A string
     """
-    return get_mapping()
+    mapping = get_mapping()
+    result = ""
 
+    for k, g in itertools.groupby(keys):
+        n = len(list(g))
+        result += mapping[k][n-1]
+    return result
 
-print(keypad_string('90789'))
+print(keypad_string('4446777266'))
