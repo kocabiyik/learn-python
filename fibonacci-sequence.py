@@ -30,3 +30,4 @@ def fibonacci_sequence(up_to=100):
 
 
 fibonacci_sequence(args.up_to)
+
