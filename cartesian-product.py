@@ -1,8 +1,8 @@
 # Given two sets A an B, return all the (a, b) combinations
 # where a is an element of A and B is an element of B.
 
-from typing import Set, List, Tuple
 import itertools as it
+from typing import Set, List, Tuple
 
 
 def get_cartesian_product(A: Set, B: Set) -> List[Tuple]:
@@ -24,6 +24,7 @@ def get_cartesian_product(A: Set, B: Set) -> List[Tuple]:
             cartesian_product.append((a, b))
     return cartesian_product
 
+
 def get_cartesian_product2(A: Set, B: Set) -> List[Tuple]:
     """Returns Cartesian product of set A and B
 
@@ -39,3 +40,6 @@ def get_cartesian_product2(A: Set, B: Set) -> List[Tuple]:
 
     return list(it.product(A, B))
 
+
+if __name__ == '__main__':
+    print(get_cartesian_product({1, 2}, {3, 4}))
